@@ -1,9 +1,7 @@
 <template>
   <v-layout class="rounded rounded-md">
-    
-    <NavigationDrawer />
 
-    <AppBar />
+    <AppBarAndNavigationDrawer />
 
     <Main />
 
@@ -11,7 +9,6 @@
 </template>
 
 <script>
-  import NavigationDrawer from './NavigationDrawer.vue';
-  import AppBar from './AppBar.vue';
+  import AppBarAndNavigationDrawer from './AppBarAndNavigationDrawer.vue';
   import Main from './Main.vue';
 </script>
