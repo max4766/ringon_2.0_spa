@@ -6,7 +6,7 @@
   >
     <template v-slot:image>
       <v-img
-        gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.8)"
+        gradient="to top right, rgba(45,60,148,.8), rgba(72,98,241,.8)"
       ></v-img>
     </template>
 
@@ -28,10 +28,6 @@
 
     <v-btn icon>
       <v-icon>mdi-cog</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-app-bar>
 
