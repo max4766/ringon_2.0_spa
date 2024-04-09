@@ -11,7 +11,7 @@
     </template>
 
     <template v-slot:prepend>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="navDrawer = !navDrawer"></v-app-bar-nav-icon>
     </template>
 
     <v-app-bar-title>Ring-On Service</v-app-bar-title>
@@ -27,11 +27,11 @@
     </v-btn>
 
     <v-btn icon>
-      <v-icon>mdi-cog</v-icon>
+      <v-icon @click.stop="cogDrawer = !cogDrawer">mdi-cog</v-icon>
     </v-btn>
   </v-app-bar>
 
-  <v-navigation-drawer v-model="drawer"
+  <v-navigation-drawer v-model="navDrawer"
                         location="left"
                         width="260"
                         temporary
@@ -135,18 +135,44 @@
     </v-list>
   </v-navigation-drawer>
 
+  <v-navigation-drawer v-model="cogDrawer"
+                        location="right"
+                        width="360"
+                        temporary
+  >  
+    <v-list nav>
+      
+      <v-container>
+        <v-row no-gutters>
+          <v-col cols="12">
+            <v-select
+              label="Select"
+              :items="languageSelect"
+              variant="outlined"
+              density="compact"
+              v-model="languageSelectDefault"
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-container>
+      
+      
+    </v-list>
+  </v-navigation-drawer>
+
 </template>
 
 <script>
   export default {
     data () {
       return {
-        drawer: null,
+        navDrawer: null,
+        cogDrawer: null,
         platform: [
           ['Subsidiaries', 'mdi-office-building-plus'],
         ],
         dahsboard: [
-          ['Call', 'mdi-view-dashboard'],
+          ['Call', 'mdi-view-dashboard-outline'],
           ['License', 'mdi-view-dashboard'],
         ],
         myPage: [
@@ -158,6 +184,8 @@
         userManagement: [
           ['User List', 'mdi-view-list'],
         ],
+        languageSelect: ['English', '한국어', '日本語'],
+        languageSelectDefault: 'English',
       }
     }
   }
