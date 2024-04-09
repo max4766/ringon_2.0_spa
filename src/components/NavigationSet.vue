@@ -146,14 +146,29 @@
         <v-row no-gutters>
           <v-col cols="12">
             <v-select
-              label="Select"
-              :items="languageSelect"
+              label="Language Select"
               variant="outlined"
               density="compact"
-              v-model="languageSelectDefault"
+              :items="languageSelect"
+              v-model="languageSelected"
+              :value="languageSelected"
             ></v-select>
           </v-col>
         </v-row>
+
+        <v-divider class="pb-2"></v-divider>
+
+        <v-row no-gutters>
+          <v-col cols="12">
+            <v-switch color="primary" 
+                      v-model="themeSwitchText" 
+                      :label="themeSwitchText"
+                      false-value="Dark Theme Off"
+                      true-value="Dark Theme On" 
+            ></v-switch>
+          </v-col>
+        </v-row>
+        
       </v-container>
       
       
@@ -185,7 +200,8 @@
           ['User List', 'mdi-view-list'],
         ],
         languageSelect: ['English', '한국어', '日本語'],
-        languageSelectDefault: 'English',
+        languageSelected: 'English',
+        themeSwitchText: 'Dark Theme Off',
       }
     }
   }
