@@ -38,12 +38,10 @@
   <v-navigation-drawer v-model="drawer"
                         location="left"
                         temporary
-  >
-    <v-list>
-      <v-list-item title="Customer View"></v-list-item>
-    </v-list>
-    <hr>
+  >  
     <v-list nav>
+      <v-list-subheader>Customer View</v-list-subheader>
+      <v-divider></v-divider>
       <v-list-item prepend-icon="mdi-office-building" title="Platform" value="platform"></v-list-item>
       <v-list-item prepend-icon="mdi-home" title="Dashboard" value="dashboard"></v-list-item>
       <v-list-item prepend-icon="mdi-book-open-page-variant" title="My Page" value="myPage"></v-list-item>
