@@ -33,16 +33,105 @@
 
   <v-navigation-drawer v-model="drawer"
                         location="left"
+                        width="260"
                         temporary
   >  
     <v-list nav>
+
       <v-list-subheader>Customer View</v-list-subheader>
+
       <v-divider></v-divider>
-      <v-list-item prepend-icon="mdi-office-building" title="Platform" value="platform"></v-list-item>
-      <v-list-item prepend-icon="mdi-home" title="Dashboard" value="dashboard"></v-list-item>
-      <v-list-item prepend-icon="mdi-book-open-page-variant" title="My Page" value="myPage"></v-list-item>
-      <v-list-item prepend-icon="mdi-phone" title="Call List" value="callList"></v-list-item>
-      <v-list-item prepend-icon="mdi-account-group" title="User Manangement" value="userManagement"></v-list-item>
+
+      <v-list-group value="platform">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-office-building"
+            title="Platform"
+          ></v-list-item>
+        </template>
+
+        <v-list-item
+          v-for="([title, icon], i) in platform"
+          :key="i"
+          :prepend-icon="icon"
+          :title="title"
+          :value="title"
+        ></v-list-item>
+      </v-list-group>
+
+      <v-list-group value="dashboard">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-home"
+            title="Dashboard"
+          ></v-list-item>
+        </template>
+
+        <v-list-item
+          v-for="([title, icon], i) in dahsboard"
+          :key="i"
+          :prepend-icon="icon"
+          :title="title"
+          :value="title"
+        ></v-list-item>
+      </v-list-group>
+
+      <v-list-group value="myPage">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-book-open-page-variant"
+            title="My Page"
+          ></v-list-item>
+        </template>
+
+        <v-list-item
+          v-for="([title, icon], i) in myPage"
+          :key="i"
+          :prepend-icon="icon"
+          :title="title"
+          :value="title"
+        ></v-list-item>
+      </v-list-group>
+
+      <v-list-group value="callList">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-phone"
+            title="Call List"
+          ></v-list-item>
+        </template>
+
+        <v-list-item
+          v-for="([title, icon], i) in callList"
+          :key="i"
+          :prepend-icon="icon"
+          :title="title"
+          :value="title"
+        ></v-list-item>
+      </v-list-group>
+      
+      <v-list-group value="userManagement">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-account-group"
+            title="User Manangement"
+          ></v-list-item>
+        </template>
+
+        <v-list-item
+          v-for="([title, icon], i) in callList"
+          :key="i"
+          :prepend-icon="icon"
+          :title="title"
+          :value="title"
+        ></v-list-item>
+      </v-list-group>
+      
     </v-list>
   </v-navigation-drawer>
 
@@ -53,7 +142,20 @@
     data () {
       return {
         drawer: null,
+        platform: [
+          ['Subsidiaries', 'mdi-plus-outline'],
+        ],
+        dahsboard: [
+          ['Call', 'mdi-plus-outline'],
+          ['License', 'mdi-plus-outline'],
+        ],
+        myPage: [
+          ['My Page', 'mdi-plus-outline'],
+        ],
+        callList: [
+          ['All Call List', 'mdi-plus-outline'],
+        ],
       }
-    },
+    }
   }
 </script>
