@@ -64,7 +64,7 @@
         <template v-slot:activator="{ props }">
           <v-list-item
             v-bind="props"
-            prepend-icon="mdi-home"
+            prepend-icon="mdi-monitor-dashboard"
             title="Dashboard"
           ></v-list-item>
         </template>
@@ -124,7 +124,7 @@
         </template>
 
         <v-list-item
-          v-for="([title, icon], i) in callList"
+          v-for="([title, icon], i) in userManagement"
           :key="i"
           :prepend-icon="icon"
           :title="title"
@@ -143,17 +143,20 @@
       return {
         drawer: null,
         platform: [
-          ['Subsidiaries', 'mdi-plus-outline'],
+          ['Subsidiaries', 'mdi-office-building-plus'],
         ],
         dahsboard: [
-          ['Call', 'mdi-plus-outline'],
-          ['License', 'mdi-plus-outline'],
+          ['Call', 'mdi-view-dashboard'],
+          ['License', 'mdi-view-dashboard'],
         ],
         myPage: [
-          ['My Page', 'mdi-plus-outline'],
+          ['My Page', 'mdi-book-open-variant'],
         ],
         callList: [
-          ['All Call List', 'mdi-plus-outline'],
+          ['All Call List', 'mdi-list-box'],
+        ],
+        userManagement: [
+          ['User List', 'mdi-view-list'],
         ],
       }
     }
