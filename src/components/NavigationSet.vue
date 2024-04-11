@@ -12,11 +12,63 @@
 
     <template v-slot:prepend>
       <v-app-bar-nav-icon @click.stop="navDrawer = !navDrawer"></v-app-bar-nav-icon>
+      <v-tooltip
+        activator="parent"
+        location="bottom"
+      >Menu</v-tooltip>
     </template>
 
     <v-app-bar-title>Ring-On Service</v-app-bar-title>
 
     <v-spacer></v-spacer>
+
+    <v-menu
+      min-width="200px"
+      rounded
+    >
+      <template v-slot:activator="{ props }">
+        <v-btn icon>
+          <v-icon v-bind="props">mdi-account-circle</v-icon>
+          <v-tooltip
+            activator="parent"
+            location="bottom"
+          >My Account</v-tooltip>
+        </v-btn>
+      </template>
+
+      <v-card class="mt-2">
+        <v-card-text>
+          <div class="mx-auto text-center">
+            <v-avatar
+              color="indigo"
+              class="mb-2" 
+            >
+              <span class="text-h5">{{ user.initials }}</span>
+            </v-avatar>
+            <h3>{{ user.fullName }}</h3>
+            <p class="text-caption mt-1">
+              {{ user.email }}
+            </p>
+            <v-divider class="mt-3 mb-2"></v-divider>
+            <v-btn
+              variant="text"
+              rounded
+            >
+              Edit Account
+            </v-btn>
+            <v-divider class="mt-2 mb-2"></v-divider>
+            <v-btn
+              variant="text"
+              rounded
+            >
+              Logout
+            </v-btn>
+          </div>
+        </v-card-text>
+      </v-card>
+    </v-menu>
+
+    
 
     <v-btn icon>
       <v-icon @click.stop="alarmDrawer = !alarmDrawer">mdi-bell</v-icon>
@@ -27,20 +79,13 @@
     </v-btn>
 
     <v-btn icon>
-      <v-icon>mdi-account-circle</v-icon>
-      <v-tooltip
-        activator="parent"
-        location="bottom"
-      >My Account</v-tooltip>
-    </v-btn>
-
-    <v-btn icon>
       <v-icon @click.stop="settingDrawer = !settingDrawer">mdi-cog</v-icon>
       <v-tooltip
         activator="parent"
         location="bottom"
       >Settings</v-tooltip>
     </v-btn>
+
   </v-app-bar>
 
   <v-navigation-drawer v-model="navDrawer"
@@ -147,42 +192,6 @@
     </v-list>
   </v-navigation-drawer>
 
-  <v-navigation-drawer v-model="alarmDrawer"
-                        location="right"
-                        width="360"
-                        temporary
-  >  
-    <v-list nav>
-
-      <v-container>
-        <v-row no-gutters>
-          <v-col cols="12">
-            <v-alert
-              text="Enhanced features for better usability and improved performance."
-              title="New Update"
-              type="info"
-            ></v-alert>
-          </v-col>
-        </v-row>
-
-        <v-divider class="pb-2"></v-divider>
-
-        <v-row no-gutters>
-          <v-col cols="12">
-            <v-alert
-              text="Access granted to your account with seamless authentication."
-              title="Login Success"
-              type="success"
-            ></v-alert>
-          </v-col>
-        </v-row>
-        
-      </v-container>
-      
-      
-    </v-list>
-  </v-navigation-drawer>
-
   <v-navigation-drawer v-model="settingDrawer"
                         location="right"
                         width="360"
@@ -223,6 +232,72 @@
     </v-list>
   </v-navigation-drawer>
 
+  <v-navigation-drawer v-model="alarmDrawer"
+                        location="right"
+                        width="360"
+                        temporary
+  >  
+    <v-list nav>
+
+      <v-container>
+        <v-row no-gutters>
+          <v-col cols="12">
+            <v-alert
+              text="Enhanced features for better usability and improved performance."
+              title="New Update"
+              type="info"
+            ></v-alert>
+          </v-col>
+        </v-row>
+
+        <v-divider class="pb-2"></v-divider>
+
+        <v-row no-gutters>
+          <v-col cols="12">
+            <v-alert
+              text="Access granted to your account with seamless authentication."
+              title="Login Success"
+              type="success"
+            ></v-alert>
+          </v-col>
+        </v-row>
+        
+      </v-container>
+      
+      
+    </v-list>
+  </v-navigation-drawer>
+
+  <v-navigation-drawer v-model="accountDrawer"
+                        location="right"
+                        width="360"
+                        temporary
+  >  
+    <v-list nav>
+
+      <v-container>
+        <v-row no-gutters>
+          <v-col cols="12">
+
+          </v-col>
+        </v-row>
+
+        <v-divider class="pb-2"></v-divider>
+
+        <v-row no-gutters>
+          <v-col cols="12">
+
+          </v-col>
+        </v-row>
+        
+      </v-container>
+      
+      
+    </v-list>
+  </v-navigation-drawer>
+
+  
+
 </template>
 
 <script>
@@ -231,6 +306,7 @@
       return {
         navDrawer: null,
         alarmDrawer: null,
+        accountDrawer: null,
         settingDrawer: null,
         platform: [
           ['Subsidiaries', 'mdi-office-building-plus'],
@@ -251,6 +327,11 @@
         languageSelect: ['English', '한국어', '日本語'],
         languageSelected: 'English',
         themeSwitchText: 'Dark Theme Off',
+        user: {
+          initials: 'YS',
+          fullName: 'Youngsuk Hwang',
+          email: 'hysgold@ringonservice.com',
+        },
       }
     }
   }
