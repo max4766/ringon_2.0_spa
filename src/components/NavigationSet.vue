@@ -19,15 +19,27 @@
     <v-spacer></v-spacer>
 
     <v-btn icon>
+      <v-icon @click.stop="alarmDrawer = !alarmDrawer">mdi-bell</v-icon>
+      <v-tooltip
+        activator="parent"
+        location="bottom"
+      >Alarm</v-tooltip>
+    </v-btn>
+
+    <v-btn icon>
       <v-icon>mdi-account-circle</v-icon>
+      <v-tooltip
+        activator="parent"
+        location="bottom"
+      >My Account</v-tooltip>
     </v-btn>
 
     <v-btn icon>
-      <v-icon>mdi-bell</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon @click.stop="cogDrawer = !cogDrawer">mdi-cog</v-icon>
+      <v-icon @click.stop="settingDrawer = !settingDrawer">mdi-cog</v-icon>
+      <v-tooltip
+        activator="parent"
+        location="bottom"
+      >Settings</v-tooltip>
     </v-btn>
   </v-app-bar>
 
@@ -135,7 +147,43 @@
     </v-list>
   </v-navigation-drawer>
 
-  <v-navigation-drawer v-model="cogDrawer"
+  <v-navigation-drawer v-model="alarmDrawer"
+                        location="right"
+                        width="360"
+                        temporary
+  >  
+    <v-list nav>
+
+      <v-container>
+        <v-row no-gutters>
+          <v-col cols="12">
+            <v-alert
+              text="Enhanced features for better usability and improved performance."
+              title="New Update"
+              type="info"
+            ></v-alert>
+          </v-col>
+        </v-row>
+
+        <v-divider class="pb-2"></v-divider>
+
+        <v-row no-gutters>
+          <v-col cols="12">
+            <v-alert
+              text="Access granted to your account with seamless authentication."
+              title="Login Success"
+              type="success"
+            ></v-alert>
+          </v-col>
+        </v-row>
+        
+      </v-container>
+      
+      
+    </v-list>
+  </v-navigation-drawer>
+
+  <v-navigation-drawer v-model="settingDrawer"
                         location="right"
                         width="360"
                         temporary
@@ -182,7 +230,8 @@
     data () {
       return {
         navDrawer: null,
-        cogDrawer: null,
+        alarmDrawer: null,
+        settingDrawer: null,
         platform: [
           ['Subsidiaries', 'mdi-office-building-plus'],
         ],
