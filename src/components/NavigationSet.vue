@@ -32,7 +32,7 @@
           <v-tooltip
             activator="parent"
             location="bottom"
-          >My Account</v-tooltip>
+          >Account</v-tooltip>
         </v-btn>
       </template>
 
@@ -67,8 +67,6 @@
         </v-card-text>
       </v-card>
     </v-menu>
-
-    
 
     <v-btn icon>
       <v-icon @click.stop="alarmDrawer = !alarmDrawer">mdi-bell</v-icon>
@@ -296,8 +294,6 @@
     </v-list>
   </v-navigation-drawer>
 
-  
-
 </template>
 
 <script>
@@ -306,7 +302,6 @@
       return {
         navDrawer: null,
         alarmDrawer: null,
-        accountDrawer: null,
         settingDrawer: null,
         platform: [
           ['Subsidiaries', 'mdi-office-building-plus'],
