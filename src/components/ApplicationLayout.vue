@@ -3,7 +3,7 @@
 
     <NavigationSet />
 
-    <Main />
+    <RouterView />
 
     <Footer />
     
@@ -12,6 +12,5 @@
 
 <script>
   import NavigationSet from './NavigationSet.vue';
-  import Main from './Main.vue';
   import Footer from './Footer.vue';
 </script>

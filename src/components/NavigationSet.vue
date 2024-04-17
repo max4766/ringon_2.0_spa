@@ -106,13 +106,13 @@
           ></v-list-item>
         </template>
 
-        <v-list-item
-          v-for="([title, icon], i) in platform"
-          :key="i"
-          :prepend-icon="icon"
-          :title="title"
-          :value="title"
-        ></v-list-item>
+        <RouterLink v-for="([title, icon], i) in platform" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+          <v-list-item
+            :prepend-icon="icon"
+            :title="title"
+            :value="title"
+          ></v-list-item>
+        </RouterLink>
       </v-list-group>
 
       <v-list-group value="dashboard">
@@ -123,14 +123,14 @@
             title="Dashboard"
           ></v-list-item>
         </template>
-
-        <v-list-item
-          v-for="([title, icon], i) in dahsboard"
-          :key="i"
-          :prepend-icon="icon"
-          :title="title"
-          :value="title"
-        ></v-list-item>
+        
+        <RouterLink v-for="([title, icon], i) in dashboard" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+          <v-list-item
+            :prepend-icon="icon"
+            :title="title"
+            :value="title"
+          ></v-list-item>
+        </RouterLink>
       </v-list-group>
 
       <v-list-group value="myPage">
@@ -142,13 +142,13 @@
           ></v-list-item>
         </template>
 
-        <v-list-item
-          v-for="([title, icon], i) in myPage"
-          :key="i"
-          :prepend-icon="icon"
-          :title="title"
-          :value="title"
-        ></v-list-item>
+        <RouterLink v-for="([title, icon], i) in myPage" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+          <v-list-item
+            :prepend-icon="icon"
+            :title="title"
+            :value="title"
+          ></v-list-item>
+        </RouterLink>
       </v-list-group>
 
       <v-list-group value="callList">
@@ -160,13 +160,13 @@
           ></v-list-item>
         </template>
 
-        <v-list-item
-          v-for="([title, icon], i) in callList"
-          :key="i"
-          :prepend-icon="icon"
-          :title="title"
-          :value="title"
-        ></v-list-item>
+        <RouterLink v-for="([title, icon], i) in callList" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+          <v-list-item
+            :prepend-icon="icon"
+            :title="title"
+            :value="title"
+          ></v-list-item>
+        </RouterLink>
       </v-list-group>
       
       <v-list-group value="userManagement">
@@ -178,13 +178,13 @@
           ></v-list-item>
         </template>
 
-        <v-list-item
-          v-for="([title, icon], i) in userManagement"
-          :key="i"
-          :prepend-icon="icon"
-          :title="title"
-          :value="title"
-        ></v-list-item>
+        <RouterLink v-for="([title, icon], i) in userManagement" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+          <v-list-item
+            :prepend-icon="icon"
+            :title="title"
+            :value="title"
+          ></v-list-item>
+        </RouterLink>
       </v-list-group>
       
     </v-list>
@@ -306,18 +306,18 @@
         platform: [
           ['Subsidiaries', 'mdi-office-building-plus'],
         ],
-        dahsboard: [
+        dashboard: [
           ['Call', 'mdi-view-dashboard-outline'],
           ['License', 'mdi-view-dashboard'],
         ],
         myPage: [
-          ['My Page', 'mdi-book-open-variant'],
+          ['MyPage', 'mdi-book-open-variant'],
         ],
         callList: [
-          ['All Call List', 'mdi-list-box'],
+          ['AllCallList', 'mdi-list-box'],
         ],
         userManagement: [
-          ['User List', 'mdi-view-list'],
+          ['UserList', 'mdi-view-list'],
         ],
         languageSelect: ['English', '한국어', '日本語'],
         languageSelected: 'English',
