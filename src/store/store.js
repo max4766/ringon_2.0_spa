@@ -31,16 +31,6 @@ export const store = new Vuex.Store({
         },
     },
     getters: {},
-    mutations: {
-        toggleNavDrawer(state){
-            state.navDrawer = !state.navDrawer;
-        },
-        toggleAlarmDrawer(state){
-            state.alarmDrawer = !state.alarmDrawer;
-        },
-        toggleSettingDrawer(state){
-            state.settingDrawer = !state.settingDrawer;
-        },
-    },
+    mutations: {},
     actions: {}
 });
