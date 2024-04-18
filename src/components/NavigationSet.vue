@@ -43,11 +43,11 @@
               color="indigo"
               class="mb-2" 
             >
-              <span class="text-h5">{{ user.initials }}</span>
+              <span class="text-h5">{{ this.$store.state.user.initials }}</span>
             </v-avatar>
-            <h3>{{ user.fullName }}</h3>
+            <h3>{{ this.$store.state.user.fullName }}</h3>
             <p class="text-caption mt-1">
-              {{ user.email }}
+              {{ this.$store.state.user.email }}
             </p>
             <v-divider class="mt-3 mb-2"></v-divider>
             <v-btn
@@ -106,7 +106,7 @@
           ></v-list-item>
         </template>
 
-        <RouterLink v-for="([title, icon], i) in platform" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+        <RouterLink v-for="([title, icon], i) in this.$store.state.platform" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
           <v-list-item
             :prepend-icon="icon"
             :title="title"
@@ -124,7 +124,7 @@
           ></v-list-item>
         </template>
         
-        <RouterLink v-for="([title, icon], i) in dashboard" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+        <RouterLink v-for="([title, icon], i) in this.$store.state.dashboard" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
           <v-list-item
             :prepend-icon="icon"
             :title="title"
@@ -142,7 +142,7 @@
           ></v-list-item>
         </template>
 
-        <RouterLink v-for="([title, icon], i) in myPage" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+        <RouterLink v-for="([title, icon], i) in this.$store.state.myPage" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
           <v-list-item
             :prepend-icon="icon"
             :title="title"
@@ -160,7 +160,7 @@
           ></v-list-item>
         </template>
 
-        <RouterLink v-for="([title, icon], i) in callList" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+        <RouterLink v-for="([title, icon], i) in this.$store.state.callList" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
           <v-list-item
             :prepend-icon="icon"
             :title="title"
@@ -178,7 +178,7 @@
           ></v-list-item>
         </template>
 
-        <RouterLink v-for="([title, icon], i) in userManagement" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
+        <RouterLink v-for="([title, icon], i) in this.$store.state.userManagement" :key="i" :to="`/${title}`" style="text-decoration: none; color: inherit;">
           <v-list-item
             :prepend-icon="icon"
             :title="title"
@@ -204,9 +204,9 @@
               label="Language Select"
               variant="outlined"
               density="compact"
-              :items="languageSelect"
-              v-model="languageSelected"
-              :value="languageSelected"
+              :items="this.$store.state.languageSelect"
+              v-model="this.$store.state.languageSelected"
+              :value="this.$store.state.languageSelected"
             ></v-select>
           </v-col>
         </v-row>
@@ -216,8 +216,8 @@
         <v-row no-gutters>
           <v-col cols="12">
             <v-switch color="primary" 
-                      v-model="themeSwitchText" 
-                      :label="themeSwitchText"
+                      v-model="this.$store.state.themeSwitchText" 
+                      :label="this.$store.state.themeSwitchText"
                       false-value="Dark Theme Off"
                       true-value="Dark Theme On" 
             ></v-switch>
@@ -297,36 +297,12 @@
 </template>
 
 <script>
-  export default {
+  export default {   
     data () {
       return {
         navDrawer: null,
         alarmDrawer: null,
         settingDrawer: null,
-        platform: [
-          ['Subsidiaries', 'mdi-office-building-plus'],
-        ],
-        dashboard: [
-          ['Call', 'mdi-view-dashboard-outline'],
-          ['License', 'mdi-view-dashboard'],
-        ],
-        myPage: [
-          ['MyPage', 'mdi-book-open-variant'],
-        ],
-        callList: [
-          ['AllCallList', 'mdi-list-box'],
-        ],
-        userManagement: [
-          ['UserList', 'mdi-view-list'],
-        ],
-        languageSelect: ['English', '한국어', '日本語'],
-        languageSelected: 'English',
-        themeSwitchText: 'Dark Theme Off',
-        user: {
-          initials: 'YS',
-          fullName: 'Youngsuk Hwang',
-          email: 'hysgold@ringonservice.com',
-        },
       }
     }
   }
