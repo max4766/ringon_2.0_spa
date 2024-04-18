@@ -37,17 +37,21 @@ npm run dev
 
 Finally, you will see the view of the project from `localhost:3000`
 
-### Starting the Development Server
+## Goal for the project
 
-To start the development server with hot-reload, run the following command. The server will be accessible at [http://localhost:3000](http://localhost:3000):
+The main goal for this project is to use Vue and compare its feature with React.
+vue-router can be compared with React-router,
+and vuex with redux.
+Furthermore, MUI exists also in Vue as a UI framework called Vuetify.
+While React uses JSX grammar, Vue uses vue template, which is why learning Vue seems much easier than learning React.
+However, since router and Vuex have a similar feature like React's router and Redux, 
+It may require you high level skills if you are in a massive project dealing with route and state managing.
 
-```bash
-yarn dev
-```
+Here, vuetify 3 was used which is why corespondingly vue-router 4 and vuex 4 version was mendatory for compatibility.
 
-(Repeat for npm, pnpm, and bun with respective commands.)
+If you click each list item in the Menu Drawer, you'll be redirected to each page, which is possible due to Vue-router.
 
-> Add NODE_OPTIONS='--no-warnings' to suppress the JSON import warnings that happen as part of the Vuetify import mapping. If you are on Node [v21.3.0](https://nodejs.org/en/blog/release/v21.3.0) or higher, you can change this to NODE_OPTIONS='--disable-warning=5401'. If you don't mind the warning, you can remove this from your package.json dev script.
+Meanwhile, it seems using Nuxt.js would be much easier to set up the environment for it already has auto routing feature just like Next.js does.
 
 ## 📑 License
 [MIT](http://opensource.org/licenses/MIT)
